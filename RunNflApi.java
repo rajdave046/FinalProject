@@ -3,9 +3,12 @@ package com.example.jakobsa2.finalprojectui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class RunNflApi extends AppCompatActivity {
+    private Button home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,5 +26,18 @@ public class RunNflApi extends AppCompatActivity {
         m.setText("" + month);
         d.setText("" + day);
         y.setText("" + year);
+
+        home = findViewById(R.id.home_run_nfl_api);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nflApiHome();
+            }
+        });
+    }
+
+    public void nflApiHome() {
+        Intent open = new Intent(this, MainActivity.class);
+        startActivity(open);
     }
 }
