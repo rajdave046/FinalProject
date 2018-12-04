@@ -1,0 +1,27 @@
+package com.example.jakobsa2.finalprojectui;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class RunNflApi extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_run_nfl_api);
+
+        Intent intent = getIntent();
+        int month = intent.getIntExtra(NFL.EXTRA_NUMBER_4, 12);
+        int day = intent.getIntExtra(NFL.EXTRA_NUMBER_5, 25);
+        int year = intent.getIntExtra(NFL.EXTRA_NUMBER_6, 2018);
+
+        TextView m = (TextView) findViewById(R.id.nfl_api_month);
+        TextView d = (TextView) findViewById(R.id.nfl_api_day);
+        TextView y = (TextView) findViewById(R.id.nfl_api_year);
+        m.setText("" + month);
+        d.setText("" + day);
+        y.setText("" + year);
+    }
+}
